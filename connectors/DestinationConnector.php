@@ -8,6 +8,7 @@
 		public static $COLUMN_LAT = "lat";
 		public static $COLUMN_LONG = "lon";
 		public static $COLUMN_DETAILS = "details";
+		public static $COLUMN_THUMBNAIL = "thumbnail";
 		
 		private $createStatement = NULL;
 		private $selectStatement = NULL;
@@ -20,14 +21,14 @@
 			
 			$this->mysqli = $mysqli;
 			
-			$this->createStatement = $mysqli->prepare("INSERT INTO " . DestinationConnector::$TABLE_NAME . "(`" . DestinationConnector::$COLUMN_NAME . "`, `" . DestinationConnector::$COLUMN_LAT . "`, `" . DestinationConnector::$COLUMN_LONG . "`, `" . DestinationConnector::$COLUMN_DETAILS . "`) VALUES(?, ?, ?, ?)");
+			$this->createStatement = $mysqli->prepare("INSERT INTO " . DestinationConnector::$TABLE_NAME . "(`" . DestinationConnector::$COLUMN_NAME . "`, `" . DestinationConnector::$COLUMN_LAT . "`, `" . DestinationConnector::$COLUMN_LONG . "`, `" . DestinationConnector::$COLUMN_DETAILS . "`, `" . DestinationConnector::$COLUMN_THUMBNAIL . "`) VALUES(?, ?, ?, ?, ?)");
 			$this->selectStatement = $mysqli->prepare("SELECT * FROM `" . DestinationConnector::$TABLE_NAME . "` WHERE `" . DestinationConnector::$COLUMN_ID . "` = ?");
 			$this->selectAllStatement = $mysqli->prepare("SELECT * FROM `" . DestinationConnector::$TABLE_NAME . "`");
 			$this->deleteStatement = $mysqli->prepare("DELETE FROM " . DestinationConnector::$TABLE_NAME . " WHERE `" . DestinationConnector::$COLUMN_ID . "` = ?");
 		}
 		
-		public function create($name, $lat, $long, $details) {
-			$this->createStatement->bind_param("ssss", $name, $lat, $long, $details);
+		public function create($name, $lat, $long, $details, $thumbnail) {
+			$this->createStatement->bind_param("ssssb", $name, $lat, $long, $details, $thumbnail);
 			return $this->createStatement->execute();
 		}
 		
