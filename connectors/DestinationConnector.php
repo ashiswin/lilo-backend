@@ -6,7 +6,7 @@
 		public static $COLUMN_ID = "id";
 		public static $COLUMN_NAME = "name";
 		public static $COLUMN_LAT = "lat";
-		public static $COLUMN_LONG = "long";
+		public static $COLUMN_LONG = "lon";
 		public static $COLUMN_DETAILS = "details";
 		
 		private $createStatement = NULL;
