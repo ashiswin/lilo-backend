@@ -2,7 +2,7 @@
 	class EventConnector {
 		private $mysqli = NULL;
 		
-		public static $TABLE_NAME = "images";
+		public static $TABLE_NAME = "events";
 		public static $COLUMN_ID = "id";
 		public static $COLUMN_DESTINATIONID = "destinationId";
 		public static $COLUMN_NAME = "name";
