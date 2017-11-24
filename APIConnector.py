@@ -1,8 +1,5 @@
 import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import json
-
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class TaxiAPIConnector:
 	def __init__(self):
