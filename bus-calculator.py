@@ -24,7 +24,7 @@ for i in range(len(destinations)):
 			continue
 		distance = g.getDistanceDataBus(str(destinations[i]['lat']) + "," + str(destinations[i]['lon']), str(destinations[j]['lat']) + "," + str(destinations[j]['lon']))['rows'][0]['elements'][0]
 		distVal = distance['distance']['value'] / 1000.0
-		cost = 0
+		cost = 0.77
 		
 		for p in prices:
 			if distVal >= p[0] and distVal <= p[1]:
